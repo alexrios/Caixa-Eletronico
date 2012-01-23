@@ -1,0 +1,18 @@
+Positivo:
+- Todos participaram
+- Comida
+- Problema Terminou
+- Teclas de Atalho
+- Problema mais legal 
+- Cooperacao
+- Conhecer nova linguagem
+- Integracao da Equipe
+
+Negativo:
++ Muita gente falando
+- Forma lenta de conhecer uma nova linguagem
+- Pouco Produtivo quando nao se conhece a linguagem
++ Nao respeitaram os momentos do TDD
+- Java (de novo)
+- Ciume de Codigo
+- Baby steps muito simples
