@@ -1,59 +1,72 @@
 package test;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
+import java.util.HashMap;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class CaixaEletronicoTest {
 	
-	@Test
-	public void test_saca_10() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 10", caixaEletronico.sacar(10));
+	CaixaEletronico caixaEletronico;
+	
+	@Before
+	public void setup(){
+		caixaEletronico = new CaixaEletronico();
 	}
 	
 	@Test
-	public void test_saca_20() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 20", caixaEletronico.sacar(20));
+	public void test_saca_10() {
+		HashMap<String, Integer> saque = caixaEletronico.sacar(10);
+		assertEquals(Integer.valueOf(1), saque.get("10"));
+	}
+	
+	@Test
+	public void test_saca_20() {		
+		HashMap<String, Integer> saque = caixaEletronico.sacar(20);
+		assertEquals(Integer.valueOf(1), saque.get("20"));
 	}
 
 	@Test
 	public void test_saca_30() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 20, 1 - 10", caixaEletronico.sacar(30));
+		HashMap<String, Integer> saque = caixaEletronico.sacar(30);
+		assertEquals(Integer.valueOf(1), saque.get("10"));
+		assertEquals(Integer.valueOf(1), saque.get("20"));
 	}
 	
 	@Test
 	public void test_saca_50() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 50", caixaEletronico.sacar(50));
+		HashMap<String, Integer> saque = caixaEletronico.sacar(50);
+		assertEquals(Integer.valueOf(1), saque.get("50"));
 	}
 
 	@Test
 	public void test_saca_80() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 50, 1 - 20, 1 - 10", caixaEletronico.sacar(80));
+		HashMap<String, Integer> saque = caixaEletronico.sacar(80);
+		assertEquals(Integer.valueOf(1), saque.get("10"));
+		assertEquals(Integer.valueOf(1), saque.get("20"));
+		assertEquals(Integer.valueOf(1), saque.get("50"));
 	}
 	
 	@Test
 	public void test_saca_100() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 100", caixaEletronico.sacar(100));
+		HashMap<String, Integer> saque = caixaEletronico.sacar(100);
+		assertEquals(Integer.valueOf(1), saque.get("100"));
 	}
 	
 	@Test
 	public void test_saca_120() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("1 - 100, 1 - 20", caixaEletronico.sacar(120));
+		HashMap<String, Integer> saque = caixaEletronico.sacar(120);
+		assertEquals(Integer.valueOf(1), saque.get("20"));
+		assertEquals(Integer.valueOf(1), saque.get("100"));
 	}
 
 	@Test
 	public void test_saca_2320() {
-		CaixaEletronico caixaEletronico = new CaixaEletronico();
-		Assert.assertEquals("23 - 100, 1 - 20", caixaEletronico.sacar(2320));
+		HashMap<String, Integer> saque = caixaEletronico.sacar(2320);
+		assertEquals(Integer.valueOf(23), saque.get("100"));
+		assertEquals(Integer.valueOf(1), saque.get("20"));
 	}
-	
-	
-	
 
 }
